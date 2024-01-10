@@ -18,20 +18,19 @@ class Solution {
         p.next=head;
         head=p;
         p=p.next;
-        try{
-            while(p.next!=null || p.next.next!=null ){
-                ListNode q=p.next;
-                p.next=p.next.next;
-                p=p.next;
-                if(q.next!=null)
-                q.next=q.next.next;
-                if(p.next!=null)
-                p.next=q;
+        while(p.next!=null){
+            if(p.next.next==null){
+                break;
+           }
+            ListNode q=p.next;
+            p.next=p.next.next;
+            p=p.next;
+            //if(q.next!=null)
+            q.next=p.next;
+            //if(p.next!=null)
+            p.next=q;
+            p=q;
             }
-        }
-        catch(NullPointerException e){
-            System.out.print(e);
-        }
         return head;
     }
 }
