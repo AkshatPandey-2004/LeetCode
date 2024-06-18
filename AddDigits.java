@@ -15,6 +15,7 @@ class Solution {
        }
        return sum; 
     }*/
+//attempt 2
     if(num%9!=0 || num==0){
         return num%9;
     }
