@@ -5,18 +5,16 @@ class Solution {
         int grid_sum=0;
         HashSet<Integer> set=new HashSet<>();
         int arr[] =new int[2];
-        for(int i=0;i<grid.length;i++){
-            for(int j=0;j<grid[i].length;j++){
+        for (int[] grid1 : grid) {
+            for (int j = 0; j < grid1.length; j++) {
                 actual_sum+=count++;
-                if(set.contains(grid[i][j])){
-                    arr[0]=grid[i][j];
+                if (set.contains(grid1[j])) {
+                    arr[0] = grid1[j];
                     continue;
+                } else {
+                    set.add(grid1[j]);
                 }
-                else{
-                    set.add(grid[i][j]);
-                }
-                grid_sum+=grid[i][j];
-                
+                grid_sum += grid1[j];
             }
         }
         arr[1]=actual_sum-grid_sum;
